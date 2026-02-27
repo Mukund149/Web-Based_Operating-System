@@ -36,8 +36,8 @@ class Scheduler{
             if (!runningProcess) {return; }
             runningProcess.state = "running"
 
-            const maxUsable = Math.min(50, this.availableCPU)
-            const assignedCPU = Math.floor(Math.random() * Math.min(30, maxUsable)) + 20
+            const maxUsable = Math.min(30, this.availableCPU)
+            const assignedCPU = Math.floor(Math.random() * Math.min(20, maxUsable)) + 10
             runningProcess.cpuUsage = Math.min(assignedCPU, this.availableCPU)
 
             this.usedCPU += runningProcess.cpuUsage;

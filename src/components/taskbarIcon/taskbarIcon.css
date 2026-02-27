@@ -28,17 +28,22 @@
 .task-layer{
     pointer-events: none;
     z-index: 3;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
-    grid-template-rows: 1fr 1fr ;
+    display: flex ;
     position: absolute;
     width: 100%;
     height: 100%;
     /* background-color: black; */
 }
 .task-layer-box{
-    background-color: #7C9EA8;
-    opacity: 0;
+    background-color: transparent;
+    /* opacity: 0; */
+    flex: 1;
+    overflow: hidden;
+}
+.task-layer-box .task-slide-box{
+    transform: translateX(-110%);
+    height: 100%;
+    background-color: var(--color-primary);
 }
 .iconlineIsFocused{
     position: absolute;

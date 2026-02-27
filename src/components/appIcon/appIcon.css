@@ -9,7 +9,8 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    mix-blend-mode: difference;
+    /* no blending here; text will handle its own mix mode */
+    mix-blend-mode: normal;
     position: relative;
     /* overflow-x:hidden; */
     border-radius: 5px;
@@ -37,21 +38,29 @@
     /* color: white; */
     text-align: center;
     font-size: 70%;
-    /* mix-blend-mode: difference; */
     /* overflow-x: hidden; */
     /* overflow-y: visible; */
+    /* mix-blend-mode: di; */
 }
 
 .fileName h4{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: white;
+    
 
 }
 .iconName h4 {
     font-weight: 400;
-    /* mix-blend-mode: difference; */
     color: white;
+    /* ensure blend mode isn't overridden elsewhere */
+    mix-blend-mode: difference !important;
+    position: relative;
+    z-index: 1;
+    /* debug border/background for visibility if needed */
+    /* background: rgba(255,0,0,0.1); */
+    /* outline: 1px dashed lime; */
 }
 
 .icon.selected {

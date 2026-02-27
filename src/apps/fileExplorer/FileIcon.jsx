@@ -16,17 +16,6 @@ const FileIcon = ({ iconImage, iconName, type, isSelected, size }) => {
     const { createApp, terminateApp, memoryManager, processManager, scheduler, storageSystem, fileSystem, getProcessStats, getSystemStats } = useKernel()
     const {createEditor, editors, canCreateEditor} = useFileEditorStore()
 
-
-    useGSAP(() => {
-        if (!iconRef.current) return
-        gsap.to(iconRef.current.children, {
-            delay: 0.8,
-            stagger: 0.05,
-            opacity: 0,
-            duration: 0.5,
-        })
-    }, [iconName])
-
     const handleOpen = () => {
         if (type === 'directory') {
             setCwd(iconName)
@@ -66,17 +55,6 @@ const FileIcon = ({ iconImage, iconName, type, isSelected, size }) => {
             transition={{ duration: 0.5 }}
             exit={{ opacity: 0 }}
             onClick={(e) => { e.stopPropagation(), handleClick() }} onDoubleClick={() => handleOpen()} className={`icon cursor-target ${isSelected ? 'selected' : ''}`}>
-            <div ref={iconRef} className="icon-layer">
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-                <div className="icon-layer-box"></div>
-            </div>
             <div className="iconImage">
                 <img src={iconImage} alt="" />
             </div>

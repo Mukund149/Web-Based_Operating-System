@@ -23,17 +23,22 @@
     /* background-color: black; */
     pointer-events: none;
     z-index: 20;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
 }
 .layer .layer-box{
     /* backdrop-filter: blur(10px); */
     pointer-events: none;
-    opacity: 0;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    /* opacity: 0; */
     /* border: 1px solid white; */
-    background-color: #7C9EA8;
+    /* background-color: #7C9EA8; */
     /* border: 1px solid white; */
+}
+
+.layer-box .slide-box{
+    transform: translateX(-110%);
 }
 
 .status_bar{

@@ -8,7 +8,7 @@ import FileIcon from './fileIcon'
 import useComponentStore from '../../store/ComponentStore'
 
 
-const FileExplorer = () => {
+const FileExplorer = ({ windowId, setErrorName, isError }) => {
 
     const { createFile, createFolder, deleteFile, deleteFolder, writeFile, readFile, moveFile, listFiles, renameFile } = useKernel()
     const { contextMenu, openContextMenu, closeContextMenu, cwd, setCwd, goBack, select, clearSelect, selected } = useFileSystemStore()
@@ -33,13 +33,18 @@ const FileExplorer = () => {
     //     renameFile(path, name)
     // }
 
-    const handleDelete=()=>{
+    const handleDelete = () => {
         let path = cwd + `/${selected.name}`
+        let result
         if (selected.type === "directory") {
-            deleteFolder(path)
+            result = deleteFolder(path)
         }
         else if (selected.type === "file") {
-            deleteFile(path)
+            result = deleteFile(path)
+        }
+        if (result && !result.success) {
+            setErrorName(result.error)
+            isError()
         }
         listFiles(cwd)
     }

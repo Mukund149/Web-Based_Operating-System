@@ -1,12 +1,72 @@
 .calc{
     height: 100%;
     width: 100%;
-    background-color: aqua;
+    background-color: #212121f8;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    /* flex: 1 2; */
+    backdrop-filter: blur(25px);
+
 }
-.calc h1{
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+.calc-screen{
+    /* border-bottom: 1px solid white; */
+    flex: 1;
+    
+}
+
+.calc-screen input{
+    text-align: end;
+    font-size: 3vw;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: none;
+    font-family: "poppins";
+    padding-right: 1vw;
+}
+.operands{
+    /* border: 1px solid white; */
+    flex: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+    padding: 2px;
+}
+.operands button{
+    border: none;
+    border-radius: 5px;
+    cursor: none;
+    /* background-color: #3A3A3A; */
+    font-family: "poppins";
+    font-size: 1.5vw;
+    font-weight: 200;
+}
+
+.operands button:hover{
+    background-color: var(--color-secondary);
+}
+
+.operators{
+    background-color: var(--color-secondary);
+    color: white;
+}
+.numbers{
+    background-color: var(--color-tertiary);
+    color: white;
+}
+.CE{
+    background-color: var(--color-tertiary);
+    color: white;
+}
+.enter{
+    background-color: var(--color-primary);
+    color: black;
+}
+
+.pressed{
+    background-color: var(--color-secondary);
 }

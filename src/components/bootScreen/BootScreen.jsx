@@ -48,44 +48,51 @@ const BootScreen = () => {
                 openComponent("taskBar")
             }
              })
-        tl.to(".up span", {
-            // delay: 1,
-            y: "-100%",
-            stagger: 0.1,
-            duration: 0.8,
-            repeat: 3
-        })
-        tl.to(".down span", {
-            // delay: 1,
-            y: "-100%",
-            stagger: 0.1,
-            duration: 0.8,
-            repeat: 3
-        }, "0.01")
-        tl.to(".load span", {
-            opacity: 0,
-            stagger: 0.08,
-            duration: 1
-        })
+        // tl.to(".up span", {
+        //     // delay: 1,
+        //     y: "-100%",
+        //     stagger: 0.1,
+        //     duration: 0.8,
+        //     repeat: 3
+        // })
+        // tl.to(".down span", {
+        //     // delay: 1,
+        //     y: "-100%",
+        //     stagger: 0.1,
+        //     duration: 0.8,
+        //     repeat: 3
+        // }, "0.01")
+        // tl.to(".load span", {
+        //     opacity: 0,
+        //     stagger: 0.08,
+        //     duration: 1
+        // })
         tl.to(".welcome span", {
             delay: 0.5,
             opacity: 1,
             stagger: 0.08,
             duration: 1
         }, "<")
-        tl.to(".boot-layer-box", {
-            opacity:1,
-            stagger:0.1,
-            duration:0.4
+        tl.to(".welcome span", {
+            delay: 0.8,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.8
         })
-        tl.to(".boot-layer-box", {
-            opacity:0,
+        tl.to(".slide-box", {
+            // opacity:1,
+            x:"100%",
             stagger:0.1,
-            duration:0.4,
-            // reversed:true
-        }, '-=0.6')
+            duration:0.5
+        }, "<")
+        // tl.to(".boot-layer-box", {
+        //     opacity:0,
+        //     stagger:0.1,
+        //     duration:0.4,
+        //     // reversed:true
+        // }, '-=0.6')
         tl.to(".boot-container", {
-            opacity:0
+            // opacity:0
         }, '<')
 
     })
@@ -97,35 +104,61 @@ const BootScreen = () => {
     return (
         <>
         <div className="boot-layer">
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
-            <div className="boot-layer-box"></div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
+            <div className="boot-layer-box">
+                <div className="slide-box"></div>
+            </div>
         </div>
             <div className="boot-container">
-                {/* <div ref={upRef} className="boot-screen-up">
-                    <Squares
-                        speed={0.5}
-                        squareSize={30}
-                        direction='diagonal' // up, down, left, right, diagonal
-                        borderColor='white'
-                        hoverFillColor='white'
-                    />
-                </div> */}
                 <div className="loading">
-                    <h1 className='load up' ref={breakRef} >LOADING</h1>
-                    <h1 className='welcome'>WELCOME</h1>
-                    <h1 className='load down' ref={breakRef} >LOADING</h1>
+                    {/* <h1 className='load up' ref={breakRef} >LOADING</h1> */}
+                    <h1 className='welcome'>Welcome</h1>
+                    {/* <h1 className='load down' ref={breakRef} >LOADING</h1> */}
                 </div>
-
             </div>
         </>
     )

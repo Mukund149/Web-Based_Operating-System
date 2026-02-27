@@ -107,8 +107,9 @@ const AppWindow = ({ windowData, children, appImg }) => {
                 }
             }
         )
-        tl.to(windowRef.current.querySelector('.layer').children, {
-            opacity:0,
+        tl.to(windowRef.current.querySelectorAll(".slide-box"), {
+            // opacity:0,
+            x:"-110%",
             stagger:0.04,
             duration:0.5,
             reversed:true
@@ -169,10 +170,11 @@ const AppWindow = ({ windowData, children, appImg }) => {
             }
         })
 
-        tl.to(windowRef.current.querySelector('.layer').children, {
+        tl.to(windowRef.current.querySelectorAll(".slide-box"), {
+            x:"0",
             stagger:0.04,
             duration:0.5,
-            opacity:1
+            // opacity:1
         })
         tl.to(windowRef.current, {
             y: window.innerHeight + 100,
@@ -317,18 +319,48 @@ if (isMinimized && !isAnimating && wasMinimized.current) {
                 
                  style={{ zIndex: zIndex, border: isMaximized?'none':'1px solid rgba(255, 255, 255, 0.219)' }} onClick={() => bringTofront(id)} ref={windowRef} className="app_window">
                     <div className="layer">
-                        <div  className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
-                        <div className="layer-box"></div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
+                        <div className="layer-box">
+                            <div className="slide-box"></div>
+                        </div>
                     </div>
                     <div onDoubleClick={() => handleMaximizeToggle()} className="status_bar cursor-target">
                         <div className="app_name"> <img src={appImg} alt="" /> {name}</div>

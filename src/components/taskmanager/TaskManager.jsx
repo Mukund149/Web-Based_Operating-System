@@ -20,14 +20,14 @@ const TaskManager = () => {
       <div className="taskmanager-body">
         <div className="taskmanager-sidebar">
           <button
-            className={`sidebar-btn ${activeTab === 'processes' ? 'active' : ''}`}
+            className={`sidebar-btn ${activeTab === 'processes' ? 'active' : ''} cursor-target `}
             onClick={() => setActiveTab('processes')}
           >
             <span className="sidebar-label">Processes</span>
           </button>
 
           <button
-            className={`sidebar-btn ${activeTab === 'performance' ? 'active' : ''}`}
+            className={`sidebar-btn ${activeTab === 'performance' ? 'active' : ''} cursor-target `}
             onClick={() => setActiveTab('performance')}
           >
             <span className="sidebar-label">Performance</span>
@@ -40,8 +40,8 @@ const TaskManager = () => {
               <div className="data-row header">
                 <div className="table-column table-header">PID</div>
                 <div className="table-column table-header">App Name</div>
-                <div className="table-column table-header">Memory Usage</div>
-                <div className="table-column table-header">CPU Usage</div>
+                <div className="table-column table-header">Memory</div>
+                <div className="table-column table-header">CPU %</div>
                 <div className="table-column table-header">Status</div>
               </div>
               <DataRenderComponent />

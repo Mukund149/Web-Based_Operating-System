@@ -21,15 +21,17 @@ const TaskbarIcon = ({iconImage, isFocused, onClick, isMinimized}) => {
     useGSAP(()=>{
             if (isMinimized) {
         var tl = gsap.timeline()
-        tl.to(taskRef.current.querySelector('.task-layer').children, {
+        tl.to(taskRef.current.querySelectorAll('.task-slide-box'), {
             stagger:0.05,
-            opacity:1,
+            // opacity:1,
+            x:"0",
             duration:0.2,
             // reversed: !isMinimized ? true : undefined
         })
-        tl.to(taskRef.current.querySelector('.task-layer').children, {
+        tl.to(taskRef.current.querySelectorAll('.task-slide-box'), {
             stagger:0.05,
-            opacity:0,
+            // opacity:0,
+            x:"110%",
             duration:0.2,
             // reversed: !isMinimized ? true : undefined
         })
@@ -59,12 +61,24 @@ const TaskbarIcon = ({iconImage, isFocused, onClick, isMinimized}) => {
     }}
      ref={taskRef}  onClick={onClick} className="taskBarIcon cursor-target">
         <div className="task-layer">
-            <div className="task-layer-box"></div>
-            <div className="task-layer-box"></div>
-            <div className="task-layer-box"></div>
-            <div className="task-layer-box"></div>
-            <div className="task-layer-box"></div>
-            <div className="task-layer-box"></div>
+            <div className="task-layer-box">
+                <div className="task-slide-box"></div>
+            </div>
+            <div className="task-layer-box">
+                <div className="task-slide-box"></div>
+            </div>
+            <div className="task-layer-box">
+                <div className="task-slide-box"></div>
+            </div>
+            <div className="task-layer-box">
+                <div className="task-slide-box"></div>
+            </div>
+            <div className="task-layer-box">
+                <div className="task-slide-box"></div>
+            </div>
+            <div className="task-layer-box">
+                <div className="task-slide-box"></div>
+            </div>
         </div>
         <img ref={imgRef} src={iconImage} alt="" />
         <div style={{width: isFocused?"35%":"10%"}} className="iconlineIsFocused"></div>

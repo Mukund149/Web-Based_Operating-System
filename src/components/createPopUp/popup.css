@@ -18,14 +18,20 @@
     /* background-color: aqua; */
     z-index: 11;
     border-radius: inherit;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
     pointer-events: none;
 }
 .popup-layer-box{
     /* border: 1px solid black; */
-    background-color: aqua;
+    /* background-color: aqua; */
+    flex: 1;
+    overflow: hidden;
+}
+.popup-slide-box{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    /* transform: translateX(-110%); */
 }
 .popup-box{
     width: 20%;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useKernel } from "../../context/kernelContext";
 import {
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -22,7 +22,7 @@ const PerformanceTab = () => {
   const [cpuHistory, setCpuHistory] = useState([]);
   const [metricView, setMetricView] = useState("cpu");
 
-  const TOTAL_MEMORY = memoryManager?.totalMemory || 4194304;
+  const TOTAL_MEMORY = memoryManager?.total || 4194304;
 
   useEffect(() => {
     const updateMetrics = () => {
@@ -73,14 +73,14 @@ const PerformanceTab = () => {
 
       <div className="perf-toggle">
         <button
-          className={`perf-btn ${metricView === "cpu" ? "active" : ""}`}
+          className={`perf-btn ${metricView === "cpu" ? "active" : ""} cursor-target `}
           onClick={() => setMetricView("cpu")}
         >
           CPU
         </button>
 
         <button
-          className={`perf-btn ${metricView === "memory" ? "active" : ""}`}
+          className={`perf-btn ${metricView === "memory" ? "active" : ""} cursor-target `}
           onClick={() => setMetricView("memory")}
         >
           Memory
@@ -90,26 +90,29 @@ const PerformanceTab = () => {
       <div className="cpu-graph">
         {cpuHistory.length > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart
+            <AreaChart
               data={graphData}
-              margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+              margin={{ top: 10, right:10, left: 0, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#262a30" />
 
               <XAxis
                 dataKey="time"
                 stroke="#6b7280"
-                tick={{ fill: "#9ca3af", fontSize: 11 }}
+                tick={{ fill: "#9ca3af", fontSize: 10 }}
                 axisLine={{ stroke: "#374151" }}
                 tickLine={false}
+                cursor={"none"}
+                
               />
 
               <YAxis
                 domain={[0, 100]}
                 stroke="#6b7280"
-                tick={{ fill: "#9ca3af", fontSize: 11 }}
+                tick={{ fill: "#9ca3af", fontSize: 10 }}
                 axisLine={{ stroke: "#374151" }}
                 tickLine={false}
+                cursor={"none"}
               />
 
               <Tooltip
@@ -123,25 +126,29 @@ const PerformanceTab = () => {
               />
 
               {metricView === "cpu" ? (
-                <Line
+                <Area
                   type="monotone"
                   dataKey="cpu"
                   stroke="#22d3ee"
-                  strokeWidth={3}
+                  strokeWidth={2}
                   dot={false}
+                  fill="#22d3ee75"
                   isAnimationActive={false}
+                  cursor={"none"}
                 />
               ) : (
-                <Line
+                <Area
                   type="monotone"
                   dataKey="memory"
                   stroke="#a78bfa"
                   strokeWidth={3}
                   dot={false}
                   isAnimationActive={false}
+                  fill="#a78bfa8a"
+                  cursor={"none"}
                 />
               )}
-            </LineChart>
+            </AreaChart>
           </ResponsiveContainer>
         ) : (
           <div

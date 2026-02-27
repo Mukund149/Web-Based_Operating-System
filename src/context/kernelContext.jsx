@@ -11,7 +11,7 @@ export const KernelProvider = ({ children }) => {
     const kernel = useRef(null)
 
     if (!kernel.current) {
-        const memoryManager = new MemoryManager(4194304)
+        const memoryManager = new MemoryManager(4294967296)
         const scheduler = new Scheduler()
         const processManager = new ProcessManager(memoryManager, scheduler)
         scheduler.pm = processManager

@@ -63,7 +63,7 @@ const App = () => {
 
 
         <AnimatePresence>
-        { popUp.isOpen && <Popup/>}
+        { popUp.isOpen && <Popup isError={handleError} setErrorName={seterrorName} />}
         </AnimatePresence>
 
           <AnimatePresence>
@@ -75,7 +75,7 @@ const App = () => {
             return (
 
               <AppWindow key={win.id} appImg={image} windowData={win}>
-                <Component windowId={win.id} />
+                <Component windowId={win.id} setErrorName={seterrorName} isError={handleError} />
               </AppWindow>
             )
           })}

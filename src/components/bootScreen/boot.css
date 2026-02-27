@@ -1,4 +1,9 @@
 @font-face {
+    font-family: "windsong";
+    src: url(../../assets/fonts/WindSong-Medium.ttf);
+}
+
+@font-face {
     font-family: "boot";
     src: url(../../assets/fonts/ROUND8-FOUR.otf);
 }
@@ -14,6 +19,8 @@
     font-family: "boot3";
     src: url(../../assets/fonts/ml8WBou3qLRVFQzTmsYLrcQlG3s.ttf);
 }
+
+
 *{
     padding: 0;
     margin: 0;
@@ -27,26 +34,37 @@
     z-index: 1000 ;
     /* opacity: 0; */
     /* background-color: #2da5e5; */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
 }
 .boot-layer-box{
     /* border: 1px solid white; */
-    opacity: 0;
-    background-color:#d07908;
+    /* opacity: 0; */
+    /* border: 1px solid white; */
+    background-color:transparent;
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+.slide-box{
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-primary);
 }
 .boot-container{
     /* opacity: 0; */
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    background-color: black;
-    z-index: 999;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    z-index: 1001;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* margin-top: 50%; */
 }
 .loading{
     /* border: 2px solid white; */
@@ -54,13 +72,13 @@
     pointer-events: none;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     /* gap: 1vw; */
     position: relative;
-    /* border: 2px solid white; */
+    /* border: 2px solid black; */
     overflow: hidden;
-    color: white;
+    color: black;
     width: fit-content;
     z-index: 999;
     font-family: "boot3";
@@ -69,7 +87,7 @@
     width: 70vw;
     transform-origin: left;
     line-height: 0.8;
-    height: 60px;
+    height: 200px;
 }
 .loading >:nth-child(2){
     /* font-size: 8.7vw; */
@@ -79,6 +97,10 @@
 
 .welcome span{
     opacity: 0;
+      font-family: "windsong";
+  font-weight: 500;
+  font-style: normal;
+  /* margin-top: auto; */
 }
 .loading h1{
     display: flex;

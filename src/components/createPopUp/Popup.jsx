@@ -8,7 +8,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 
-const Popup = ({ type, call }) => {
+const Popup = ({ type, call, isError, setErrorName }) => {
     const { openComponent, closeComponent, popUp } = useComponentStore()
 
     const { createFile, createFolder, deleteFile, deleteFolder, writeFile, readFile, moveFile, listFiles, renameFile } = useKernel()
@@ -31,14 +31,16 @@ const Popup = ({ type, call }) => {
                 name = fileName ? `${fileName}.txt`:""
                 const rename = renameFile(path, name)
                 if (!rename.success) {
-                    alert(rename.error)
+                    setErrorName(rename.error);
+                    isError();
                 }
             }
             else if (popUp.type === "directory") {
                 path = cwd + `/${selected.name}`
                 const rename = renameFile(path, fileName)
                 if (!rename.success) {
-                    alert(rename.error)
+                    setErrorName(rename.error);
+                    isError();
                 }
             }
         }
@@ -47,14 +49,16 @@ const Popup = ({ type, call }) => {
                 path = fileName ? cwd + `/${fileName}.txt`: cwd
                 const create = createFile(path)
                 if (!create.success) {
-                    alert(create.error)
+                    setErrorName(create.error);
+                    isError();
                 }
             }
             else if (popUp.type === "Folder") {
                 path = cwd + `/${fileName}`
                 const create = createFolder(path)
                 if (!create.success) {
-                    alert(create.error)
+                    setErrorName(create.error);
+                    isError();
                 }
             }
         }
@@ -62,21 +66,23 @@ const Popup = ({ type, call }) => {
     }
 
     useGSAP(()=>{
-        gsap.to(".popup-layer-box", {
+        gsap.to(".popup-slide-box", {
             delay:0.2,
             stagger:0.05,
-            opacity:0,
-            duration:0.5,
+            // opacity:0,
+            x:"-110%",
+            duration:0.3,
         })
     }, [])
 
     const handleClose= ()=>{
-        gsap.to(".popup-layer-box", {
+        gsap.to(".popup-slide-box", {
             // delay:0.2,
             stagger:0.05,
-            opacity:1,
-            duration:0.5,
-            onStart: ()=>{closeComponent("popUp")}
+            // opacity:1,
+            x:0,
+            duration:0.3,
+            onComplete: ()=>{closeComponent("popUp")}
         })
     }
 
@@ -107,12 +113,33 @@ const Popup = ({ type, call }) => {
                 className="popup-box">
 
                 <div className="popup-layer">
-                    <div className="popup-layer-box"></div>
-                    <div className="popup-layer-box"></div>
-                    <div className="popup-layer-box"></div>
-                    <div className="popup-layer-box"></div>
-                    <div className="popup-layer-box"></div>
-                    <div className="popup-layer-box"></div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
+                    <div className="popup-layer-box">
+                        <div className="popup-slide-box"></div>
+                    </div>
                 </div>
 
                 <div className="create-heading">

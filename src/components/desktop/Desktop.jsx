@@ -41,9 +41,9 @@ const Desktop = ({isError, setErrorName}) => {
       </div>
         
         <div className="icon_grid">
-          { appIcon.isOpen && <AppIcon setErrorName={setErrorName} isError={isError} iconName={"Terminal"} iconImage={terminal} size={4096}/>}
-          { appIcon.isOpen && <AppIcon setErrorName={setErrorName} isError={isError} iconName={"Calculator"} iconImage={calculator} size={4096} />}
-          { appIcon.isOpen && <AppIcon setErrorName={setErrorName} isError={isError} iconName={"File Explorer"} iconImage={explorer} size={4096} />}
+          { appIcon.isOpen && <AppIcon setErrorName={setErrorName} isError={isError} iconName={"Terminal"} iconImage={terminal} size={209715200}/>}
+          { appIcon.isOpen && <AppIcon setErrorName={setErrorName} isError={isError} iconName={"Calculator"} iconImage={calculator} size={419430400} />}
+          { appIcon.isOpen && <AppIcon setErrorName={setErrorName} isError={isError} iconName={"File Explorer"} iconImage={explorer} size={629145600} />}
         </div>
       </div>
     </>
