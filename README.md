@@ -1,7 +1,5 @@
 # 🧠 WebOS - Simulated Operating System in the Browser
 
-## _A futuristic, research-grade OS… built with frontend tools. Because why not?_
-
 WebOS is a full operating system simulation implemented entirely in the browser.
 It models fundamental OS subsystems — process management, memory allocation, CPU scheduling, file systems, and storage — built using React, Zustand, GSAP, and a custom kernel architecture.
 This project is designed to bridge theory and practice, allowing students and developers to observe how low-level mechanisms behave under realistic constraints. The architecture models core OS principles such as:
