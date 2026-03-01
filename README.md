@@ -2,7 +2,7 @@
 
 WebOS is a full operating system simulation implemented entirely in the browser.
 It models fundamental OS subsystems — process management, memory allocation, CPU scheduling, file systems, and storage — built using React, Zustand, GSAP, and a custom kernel architecture.
-This project is designed to bridge theory and practice, allowing students and developers to observe how low-level mechanisms behave under realistic constraints. The architecture models core OS principles such as:
+The architecture models core OS principles such as:
 
 * Round Robin scheduling
 * First-Fit memory allocation
@@ -12,12 +12,6 @@ This project is designed to bridge theory and practice, allowing students and de
 * Kernel-led resource arbitration
 
 All system interactions occur through a **kernel-first control flow**, ensuring strict separation of the computational model and UI rendering.
-
----
-
-## 📸 Preview — WebOS Boot Sequence (Early Build)
-
-<video src="https://github.com/user-attachments/assets/60eb56e9-ddf7-41ad-9059-e626643431fe" width="700" autoplay muted loop></video>
 
 ---
 
@@ -184,9 +178,9 @@ Unlike standard web apps that have infinite virtual memory, WebOS enforces stric
 
 ## 🎯 Project Goals
 
-- Help students understand OS concepts through **visual, interactive simulation**
-- Make the internal workings of a kernel **transparent and accessible**
-- Provide a sandbox for experimentation (create apps, test overload, visualize memory, etc.)
+- Explore how classical OS abstractions behave when reimplemented in a browser runtime
+- Enforce deterministic resource constraints inside a non-native environment
+- Model kernel authority in a UI-driven system
 
 ---
 
@@ -209,20 +203,6 @@ Unlike standard web apps that have infinite virtual memory, WebOS enforces stric
 ✅ UI/UX FileSystem  
 ✅ Task-Manager (process stats view)  
 ✅ Taskbar  
-
-
-
----
-
-## 🧠 Why This Matters
-
-> “OS dev isn’t about the GUI — it’s about the guts.”  
-
-WebOS is one of the few browser-based projects that simulates actual OS behavior, not just the appearance of one.
-
-It teaches by simulation.  
-It scales by architecture.  
-It impresses by depth.
 
 ---
 
